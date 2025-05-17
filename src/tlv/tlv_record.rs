@@ -7,7 +7,7 @@ pub struct TlvRecord {
     pub value: Vec<u8>,
 }
 
-// 将普通变量（如u32、String等）转换成TLV格式
+// 将变量转换成TLV格式
 pub fn var_to_tlv(tag: u16, value: &impl bincode::Encode) -> TlvRecord {
     let value_bytes = bincode::encode_to_vec(value, bincode::config::standard()).unwrap();
     let len = value_bytes.len() as u16;
@@ -18,7 +18,7 @@ pub fn var_to_tlv(tag: u16, value: &impl bincode::Encode) -> TlvRecord {
     }
 }
 
-// 从TLV格式还原出普通变量
+// 从TLV格式还原出变量
 pub fn tlv_to_var<T: bincode::Decode<()>>(
     tlv: &TlvRecord,
 ) -> Result<(T, usize), error::DecodeError> {
