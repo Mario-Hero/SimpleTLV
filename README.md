@@ -2,6 +2,8 @@
 
 一个简单的TLV序列化和反序列化代码。
 
+A simple TLV serialization and deserialization code.
+
 详情请看`src/main.rs`
 
 ## License
